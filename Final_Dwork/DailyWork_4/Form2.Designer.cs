@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.comboBoxMainCate = new System.Windows.Forms.ComboBox();
             this.comboBoxMiddleCate = new System.Windows.Forms.ComboBox();
             this.comboBoxSubCate = new System.Windows.Forms.ComboBox();
@@ -43,100 +44,73 @@
             // 
             this.comboBoxMainCate.FormattingEnabled = true;
             this.comboBoxMainCate.Items.AddRange(new object[] {
-            "인사부서",
-            "개발부서",
-            "홍보부서"});
-            this.comboBoxMainCate.Location = new System.Drawing.Point(166, 142);
+            resources.GetString("comboBoxMainCate.Items"),
+            resources.GetString("comboBoxMainCate.Items1"),
+            resources.GetString("comboBoxMainCate.Items2")});
+            resources.ApplyResources(this.comboBoxMainCate, "comboBoxMainCate");
             this.comboBoxMainCate.Name = "comboBoxMainCate";
-            this.comboBoxMainCate.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxMainCate.TabIndex = 0;
-            this.comboBoxMainCate.Text = "대분류";
             // 
             // comboBoxMiddleCate
             // 
             this.comboBoxMiddleCate.FormattingEnabled = true;
             this.comboBoxMiddleCate.Items.AddRange(new object[] {
-            "정기업무",
-            "단기업무"});
-            this.comboBoxMiddleCate.Location = new System.Drawing.Point(166, 194);
+            resources.GetString("comboBoxMiddleCate.Items"),
+            resources.GetString("comboBoxMiddleCate.Items1")});
+            resources.ApplyResources(this.comboBoxMiddleCate, "comboBoxMiddleCate");
             this.comboBoxMiddleCate.Name = "comboBoxMiddleCate";
-            this.comboBoxMiddleCate.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxMiddleCate.TabIndex = 1;
-            this.comboBoxMiddleCate.Text = "중분류";
             // 
             // comboBoxSubCate
             // 
             this.comboBoxSubCate.FormattingEnabled = true;
             this.comboBoxSubCate.Items.AddRange(new object[] {
-            "근퇴확인",
-            "급여정산",
-            "개발",
-            "회의"});
-            this.comboBoxSubCate.Location = new System.Drawing.Point(166, 245);
+            resources.GetString("comboBoxSubCate.Items"),
+            resources.GetString("comboBoxSubCate.Items1"),
+            resources.GetString("comboBoxSubCate.Items2"),
+            resources.GetString("comboBoxSubCate.Items3")});
+            resources.ApplyResources(this.comboBoxSubCate, "comboBoxSubCate");
             this.comboBoxSubCate.Name = "comboBoxSubCate";
-            this.comboBoxSubCate.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxSubCate.TabIndex = 2;
-            this.comboBoxSubCate.Text = "소분류";
             // 
             // buttonWorkRegSave
             // 
-            this.buttonWorkRegSave.Location = new System.Drawing.Point(181, 308);
+            resources.ApplyResources(this.buttonWorkRegSave, "buttonWorkRegSave");
             this.buttonWorkRegSave.Name = "buttonWorkRegSave";
-            this.buttonWorkRegSave.Size = new System.Drawing.Size(87, 33);
-            this.buttonWorkRegSave.TabIndex = 3;
-            this.buttonWorkRegSave.Text = "저장";
             this.buttonWorkRegSave.UseVisualStyleBackColor = true;
             this.buttonWorkRegSave.Click += new System.EventHandler(this.buttonWorkRegSave_Click);
             // 
             // dateTimePickerInsertWork
             // 
             this.dateTimePickerInsertWork.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerInsertWork.Location = new System.Drawing.Point(136, 30);
+            resources.ApplyResources(this.dateTimePickerInsertWork, "dateTimePickerInsertWork");
             this.dateTimePickerInsertWork.Name = "dateTimePickerInsertWork";
-            this.dateTimePickerInsertWork.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePickerInsertWork.TabIndex = 4;
             // 
             // dateTimePickerStartTime
             // 
             this.dateTimePickerStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerStartTime.Location = new System.Drawing.Point(166, 72);
+            resources.ApplyResources(this.dateTimePickerStartTime, "dateTimePickerStartTime");
             this.dateTimePickerStartTime.Name = "dateTimePickerStartTime";
             this.dateTimePickerStartTime.ShowUpDown = true;
-            this.dateTimePickerStartTime.Size = new System.Drawing.Size(170, 21);
-            this.dateTimePickerStartTime.TabIndex = 5;
             // 
             // dateTimePickerEndTime
             // 
             this.dateTimePickerEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerEndTime.Location = new System.Drawing.Point(166, 99);
+            resources.ApplyResources(this.dateTimePickerEndTime, "dateTimePickerEndTime");
             this.dateTimePickerEndTime.Name = "dateTimePickerEndTime";
             this.dateTimePickerEndTime.ShowUpDown = true;
-            this.dateTimePickerEndTime.Size = new System.Drawing.Size(170, 21);
-            this.dateTimePickerEndTime.TabIndex = 6;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 78);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "시작시간";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 105);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "종료시간";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 371);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerEndTime);
@@ -147,7 +121,6 @@
             this.Controls.Add(this.comboBoxMiddleCate);
             this.Controls.Add(this.comboBoxMainCate);
             this.Name = "Form2";
-            this.Text = "업무등록";
             this.ResumeLayout(false);
             this.PerformLayout();
 

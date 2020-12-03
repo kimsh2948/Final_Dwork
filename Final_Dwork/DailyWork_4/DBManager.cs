@@ -10,7 +10,7 @@ namespace DailyWork
     class DBManager
     {
         private static DBManager instace = new DBManager();
-        string strConn = "Server=49.50.174.201;Database=s5414043;Uid=s5414043;Pwd=rlatjdgns12;Charset=utf8";
+        string strConn = "Server=49.50.174.201;Database=AJW1234;Uid=AJW1234;Pwd=AJW1234!@;Charset=utf8";
 
         public static DBManager GetInstace() { return instace; }
         private DBManager()
@@ -35,7 +35,7 @@ namespace DailyWork
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@maincategory", maincategory);
                 cmd.Parameters.AddWithValue("@middlecategory", middlecategory);
-                cmd.Parameters.AddWithValue("@subcategory", subcategory);
+                cmd.Parameters.AddWithValue("@subcategory", subcategory); 
                 cmd.ExecuteNonQuery();
             }
         }

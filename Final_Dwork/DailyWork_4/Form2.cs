@@ -43,6 +43,25 @@ namespace DailyWork
             this.dateTimePickerEndTime.CustomFormat = "HH:mm";
 
         }
+        public void initWork()
+        {
+            string query = "SELECT MainCategory.name, MiddleCategory.name FROM MainCategory " +
+                "join MiddleCategory ON MainCategory.id = MiddleCategory.Mid_maincategory_id;";
+            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            while (rdr.Read())
+            {
+                WorkCategory workcategory = new WorkCategory();
+                workcategory.id = (int)rdr["id"];
+                workcategory.day = (string)rdr["Day"];
+                workcategory.start_time = (string)rdr["StartTime"];
+                workcategory.end_time = (string)rdr["EndTime"];
+                workcategory.MainCategory = (string)rdr["MainCategory"];
+                workcategory.MiddleCategory = (string)rdr["MiddleCategory"];
+                workcategory.SubCategory = (string)rdr["SubCategory"];
+            }
+            rdr.Close();
+
+        }
         private void buttonWorkRegSave_Click(object sender, EventArgs e)
         {
             AddWork();
