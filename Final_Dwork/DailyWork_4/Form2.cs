@@ -114,7 +114,7 @@ namespace DailyWork
         }
         public void AddWork()
         {
-            var day = dateTimePickerInsertWork.Text;
+            var day = dateTimePickerInsertWork.Value.ToString("yyyy-MM-dd");
             var start_time = dateTimePickerStartTime.Text;
             var end_time = dateTimePickerEndTime.Text;
             var maincategory = comboBoxMainCate.Text;
@@ -163,8 +163,8 @@ namespace DailyWork
                 workcategory.subcategory_id = (int)rdr["Task_subcategory_id"];
                 workcategory.start_time = (string)rdr["taskstarttime"];
                 workcategory.end_time = (string)rdr["taskendtime"];
-                //workcategory.day = Convert.ToString((string)rdr["date"]);
-                workcategory.day = (string)rdr["date"];
+                workcategory.day = Convert.ToString((DateTime)rdr["date"]);
+                //workcategory.day = (string)rdr["date"];
 
                 worklist.Add(workcategory);
             }
