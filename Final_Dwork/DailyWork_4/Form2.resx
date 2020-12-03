@@ -117,21 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="comboBoxMainCate.Items" xml:space="preserve">
-    <value>인사부서</value>
-  </data>
-  <data name="comboBoxMainCate.Items1" xml:space="preserve">
-    <value>개발부서</value>
-  </data>
-  <data name="comboBoxMainCate.Items2" xml:space="preserve">
-    <value>홍보부서</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="comboBoxMainCate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 142</value>
+    <value>190, 178</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="comboBoxMainCate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="comboBoxMainCate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
+    <value>138, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="comboBoxMainCate.TabIndex" type="System.Int32, mscorlib">
@@ -152,17 +147,14 @@
   <data name="&gt;&gt;comboBoxMainCate.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="comboBoxMiddleCate.Items" xml:space="preserve">
-    <value>정기업무</value>
-  </data>
-  <data name="comboBoxMiddleCate.Items1" xml:space="preserve">
-    <value>단기업무</value>
-  </data>
   <data name="comboBoxMiddleCate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 194</value>
+    <value>190, 242</value>
+  </data>
+  <data name="comboBoxMiddleCate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="comboBoxMiddleCate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
+    <value>138, 23</value>
   </data>
   <data name="comboBoxMiddleCate.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -182,23 +174,14 @@
   <data name="&gt;&gt;comboBoxMiddleCate.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="comboBoxSubCate.Items" xml:space="preserve">
-    <value>근퇴확인</value>
-  </data>
-  <data name="comboBoxSubCate.Items1" xml:space="preserve">
-    <value>급여정산</value>
-  </data>
-  <data name="comboBoxSubCate.Items2" xml:space="preserve">
-    <value>개발</value>
-  </data>
-  <data name="comboBoxSubCate.Items3" xml:space="preserve">
-    <value>회의</value>
-  </data>
   <data name="comboBoxSubCate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 245</value>
+    <value>190, 306</value>
+  </data>
+  <data name="comboBoxSubCate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="comboBoxSubCate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
+    <value>138, 23</value>
   </data>
   <data name="comboBoxSubCate.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -219,10 +202,13 @@
     <value>6</value>
   </data>
   <data name="buttonWorkRegSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 308</value>
+    <value>207, 385</value>
+  </data>
+  <data name="buttonWorkRegSave.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="buttonWorkRegSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 33</value>
+    <value>99, 41</value>
   </data>
   <data name="buttonWorkRegSave.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -243,10 +229,13 @@
     <value>5</value>
   </data>
   <data name="dateTimePickerInsertWork.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 30</value>
+    <value>155, 38</value>
+  </data>
+  <data name="dateTimePickerInsertWork.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="dateTimePickerInsertWork.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 21</value>
+    <value>228, 25</value>
   </data>
   <data name="dateTimePickerInsertWork.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -264,10 +253,13 @@
     <value>4</value>
   </data>
   <data name="dateTimePickerStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 72</value>
+    <value>190, 90</value>
+  </data>
+  <data name="dateTimePickerStartTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="dateTimePickerStartTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 21</value>
+    <value>194, 25</value>
   </data>
   <data name="dateTimePickerStartTime.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -285,10 +277,13 @@
     <value>3</value>
   </data>
   <data name="dateTimePickerEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 99</value>
+    <value>190, 124</value>
+  </data>
+  <data name="dateTimePickerEndTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="dateTimePickerEndTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 21</value>
+    <value>194, 25</value>
   </data>
   <data name="dateTimePickerEndTime.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -309,10 +304,10 @@
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 78</value>
+    <value>122, 98</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
+    <value>67, 15</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -336,10 +331,10 @@
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 105</value>
+    <value>122, 131</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
+    <value>67, 15</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -363,14 +358,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 12</value>
+    <value>8, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>494, 371</value>
+    <value>565, 464</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>업무등록</value>

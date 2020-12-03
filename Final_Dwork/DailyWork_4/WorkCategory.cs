@@ -12,9 +12,9 @@ namespace DailyWork
         public string day { get; set; }
         public string start_time { get; set; }
         public string end_time { get; set; }
-        public string MainCategory { get; set; }
-        public string MiddleCategory { get; set; }
-        public string SubCategory { get; set; }
+        public int maindcategory_id { get; set; }
+        public int middlecategory_id { get; set; }
+        public int subcategory_id { get; set; }
 
     }
 }

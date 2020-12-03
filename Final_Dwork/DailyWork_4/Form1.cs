@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace DailyWork
 {
@@ -70,14 +71,41 @@ namespace DailyWork
                 item.SubItems.Add(workcategory.day);
                 item.SubItems.Add(workcategory.start_time);
                 item.SubItems.Add(workcategory.end_time);
-                item.SubItems.Add(workcategory.MainCategory);
-                item.SubItems.Add(workcategory.MiddleCategory);
-                item.SubItems.Add(workcategory.SubCategory);
+                item.SubItems.Add(AddTaskName(workcategory.maindcategory_id, 1));
+                item.SubItems.Add(AddTaskName(workcategory.middlecategory_id, 2));
+                item.SubItems.Add(AddTaskName(workcategory.subcategory_id, 3));
 
                 listViewWorkList.Items.Add(item);
                 i++;
             }
             listViewWorkList.EndUpdate();
+        }
+        public string AddTaskName(int task_id, int i)
+        {
+            string query = "";
+            string taskname = "";
+            switch (i)
+            {
+                case 1:
+                    query = "SELECT name FROM MainCategory WHERE id = '" + task_id + "'";
+                    break;
+                case 2:
+                    query = "SELECT name FROM MiddleCategory WHERE id = '" + task_id + "'";
+                    break;
+                case 3:
+                    query = "SELECT name FROM SubCategory WHERE id = '" + task_id + "'";
+                    break;
+            }
+            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+
+            while (rdr.Read())
+            {
+                taskname = (string)rdr["name"];
+            }
+            rdr.Close();
+
+            return taskname;
+
         }
 
         private void buttonWorkDel_Click(object sender, EventArgs e)

@@ -51,9 +51,9 @@ namespace DailyWork
                 item.SubItems.Add(workcategory.day);
                 item.SubItems.Add(workcategory.start_time);
                 item.SubItems.Add(workcategory.end_time);
-                item.SubItems.Add(workcategory.MainCategory);
-                item.SubItems.Add(workcategory.MiddleCategory);
-                item.SubItems.Add(workcategory.SubCategory);
+                item.SubItems.Add(AddTaskName(workcategory.maindcategory_id, 1));
+                item.SubItems.Add(AddTaskName(workcategory.middlecategory_id, 2));
+                item.SubItems.Add(AddTaskName(workcategory.subcategory_id, 3));
 
                 form1.listViewWorkList.Items.Add(item);
                 i++;
@@ -63,6 +63,33 @@ namespace DailyWork
                 MessageBox.Show("검색결과가 없습니다.");
             else
                 this.Close();
+        }
+        public string AddTaskName(int task_id, int i)
+        {
+            string query = "";
+            string taskname = "";
+            switch (i)
+            {
+                case 1:
+                    query = "SELECT name FROM MainCategory WHERE id = '" + task_id + "'";
+                    break;
+                case 2:
+                    query = "SELECT name FROM MiddleCategory WHERE id = '" + task_id + "'";
+                    break;
+                case 3:
+                    query = "SELECT name FROM SubCategory WHERE id = '" + task_id + "'";
+                    break;
+            }
+            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+
+            while (rdr.Read())
+            {
+                taskname = (string)rdr["name"];
+            }
+            rdr.Close();
+
+            return taskname;
+
         }
         public List<WorkCategory> SearchLoad()
         {
@@ -78,12 +105,12 @@ namespace DailyWork
             {
                 WorkCategory workcategory = new WorkCategory();
                 workcategory.id = (int)rdr["id"];
-                workcategory.day = (string)rdr["Day"];
-                workcategory.start_time = (string)rdr["StartTime"];
-                workcategory.end_time = (string)rdr["EndTime"];
-                workcategory.MainCategory = (string)rdr["MainCategory"];
-                workcategory.MiddleCategory = (string)rdr["MiddleCategory"];
-                workcategory.SubCategory = (string)rdr["SubCategory"];
+                workcategory.maindcategory_id = (int)rdr["Task_maincategory_id"];
+                workcategory.middlecategory_id = (int)rdr["Task_middlecategory_id"];
+                workcategory.subcategory_id = (int)rdr["Task_subcategory_id"];
+                workcategory.start_time = (string)rdr["taskstarttime"];
+                workcategory.end_time = (string)rdr["taskendtime"];
+                workcategory.day = (string)rdr["date"];
 
                 worklist.Add(workcategory);
             }

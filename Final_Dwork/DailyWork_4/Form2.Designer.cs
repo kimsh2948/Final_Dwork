@@ -43,30 +43,20 @@
             // comboBoxMainCate
             // 
             this.comboBoxMainCate.FormattingEnabled = true;
-            this.comboBoxMainCate.Items.AddRange(new object[] {
-            resources.GetString("comboBoxMainCate.Items"),
-            resources.GetString("comboBoxMainCate.Items1"),
-            resources.GetString("comboBoxMainCate.Items2")});
             resources.ApplyResources(this.comboBoxMainCate, "comboBoxMainCate");
             this.comboBoxMainCate.Name = "comboBoxMainCate";
+            this.comboBoxMainCate.SelectedIndexChanged += new System.EventHandler(this.comboBoxMainCate_SelectedIndexChanged);
             // 
             // comboBoxMiddleCate
             // 
             this.comboBoxMiddleCate.FormattingEnabled = true;
-            this.comboBoxMiddleCate.Items.AddRange(new object[] {
-            resources.GetString("comboBoxMiddleCate.Items"),
-            resources.GetString("comboBoxMiddleCate.Items1")});
             resources.ApplyResources(this.comboBoxMiddleCate, "comboBoxMiddleCate");
             this.comboBoxMiddleCate.Name = "comboBoxMiddleCate";
+            this.comboBoxMiddleCate.SelectedIndexChanged += new System.EventHandler(this.comboBoxMiddleCate_SelectedIndexChanged);
             // 
             // comboBoxSubCate
             // 
             this.comboBoxSubCate.FormattingEnabled = true;
-            this.comboBoxSubCate.Items.AddRange(new object[] {
-            resources.GetString("comboBoxSubCate.Items"),
-            resources.GetString("comboBoxSubCate.Items1"),
-            resources.GetString("comboBoxSubCate.Items2"),
-            resources.GetString("comboBoxSubCate.Items3")});
             resources.ApplyResources(this.comboBoxSubCate, "comboBoxSubCate");
             this.comboBoxSubCate.Name = "comboBoxSubCate";
             // 
