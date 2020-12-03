@@ -68,7 +68,7 @@ namespace DailyWork
                 WorkCategory workcategory = new WorkCategory();
                 workcategory = worklist[i];
                 item = new ListViewItem(Convert.ToString(workcategory.id));
-                item.SubItems.Add(workcategory.day);
+                item.SubItems.Add(Convert.ToString(workcategory.day.ToString("yyyy-MM-dd")));
                 item.SubItems.Add(workcategory.start_time);
                 item.SubItems.Add(workcategory.end_time);
                 item.SubItems.Add(AddTaskName(workcategory.maindcategory_id, 1));

@@ -48,7 +48,7 @@ namespace DailyWork
                 WorkCategory workcategory = new WorkCategory();
                 workcategory = worklist[i];
                 item = new ListViewItem(Convert.ToString(workcategory.id));
-                item.SubItems.Add(workcategory.day);
+                item.SubItems.Add(Convert.ToString(workcategory.day.ToString("yyyy-MM-dd")));
                 item.SubItems.Add(workcategory.start_time);
                 item.SubItems.Add(workcategory.end_time);
                 item.SubItems.Add(AddTaskName(workcategory.maindcategory_id, 1));
@@ -95,10 +95,21 @@ namespace DailyWork
         {
             List<WorkCategory> worklist = new List<WorkCategory>();
 
+            string search_date = dateTimePickerSearchWork.Value.ToString("yyyy-MM-dd");
             string keyword = textBoxInputKeyword.Text;
+            string query = "";
 
-            string query = "SELECT * FROM dailywork WHERE Day LIKE'%" + keyword + "%' " +
-                "OR MainCategory LIKE'%" + keyword + "%' OR MiddleCategory LIKE'%" + keyword + "%' OR SubCategory LIKE'%" + keyword + "%'";
+            if(keyword == "")
+            {
+                query = "SELECT * FROM Task WHERE date LIKE'%" + search_date + "%'";
+            }
+            else
+            {
+                query = "SELECT * FROM Task WHERE date LIKE'%" + search_date + "%'" +
+                "AND Task_maincategory_id IN (SELECT id FROM MainCategory WHERE name LIKE '%" + keyword + "%') " +
+                "OR Task_middlecategory_id IN (SELECT id FROM MiddleCategory WHERE name LIKE '%" + keyword + "%') " +
+                "OR Task_subcategory_id IN (SELECT id FROM SubCategory WHERE name LIKE '%" + keyword + "%') ";
+            }
             MySqlDataReader rdr = DBManager.GetInstace().Select(query);
             while (rdr.Read())
             {
@@ -109,7 +120,7 @@ namespace DailyWork
                 workcategory.subcategory_id = (int)rdr["Task_subcategory_id"];
                 workcategory.start_time = (string)rdr["taskstarttime"];
                 workcategory.end_time = (string)rdr["taskendtime"];
-                workcategory.day = (string)rdr["date"];
+                workcategory.day = (DateTime)rdr["date"];
 
                 worklist.Add(workcategory);
             }
