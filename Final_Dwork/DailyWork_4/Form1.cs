@@ -114,7 +114,7 @@ namespace DailyWork
             int indexnum = Convert.ToInt32(listViewWorkList.FocusedItem.Text);
             if (MessageBox.Show("선택하신 업무가 삭제됩니다", "업무 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                string query = "DELETE FROM dailywork WHERE id = '" + indexnum + "'";
+                string query = "DELETE FROM Task WHERE id = '" + indexnum + "'";
                 DBManager.GetInstace().DBquery(query);
                 DelList(indexnum);
             }

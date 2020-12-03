@@ -99,7 +99,6 @@ namespace DailyWork
 
             string query = "SELECT * FROM dailywork WHERE Day LIKE'%" + keyword + "%' " +
                 "OR MainCategory LIKE'%" + keyword + "%' OR MiddleCategory LIKE'%" + keyword + "%' OR SubCategory LIKE'%" + keyword + "%'";
-            //OR WHERE MiddleCategory = '" + keyword + "' OR WHERE SubCategory = '" + keyword + "'
             MySqlDataReader rdr = DBManager.GetInstace().Select(query);
             while (rdr.Read())
             {

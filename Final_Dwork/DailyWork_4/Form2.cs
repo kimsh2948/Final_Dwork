@@ -47,10 +47,11 @@ namespace DailyWork
         }
         public void initWork()
         {
+            /*
             string query = "SELECT MainCategory.name, MiddleCategory.name FROM MainCategory " +
                 "join MiddleCategory ON MainCategory.id = MiddleCategory.Mid_maincategory_id;";
+            */
             string query_main = "SELECT name FROM MainCategory";
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
             MySqlDataReader rdr_m = DBManager.GetInstace().Select(query_main);
             while (rdr_m.Read())
             {

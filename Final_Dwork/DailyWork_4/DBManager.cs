@@ -27,15 +27,15 @@ namespace DailyWork
                 cmd.ExecuteNonQuery();
             }
         }
-        public void Update(string query, string maincategory, string middlecategory, string subcategory)
+        public void Update(string query, int maincategory, int middlecategory, int subcategory)
         {
             using (MySqlConnection conn = new MySqlConnection(strConn))
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@maincategory", maincategory);
-                cmd.Parameters.AddWithValue("@middlecategory", middlecategory);
-                cmd.Parameters.AddWithValue("@subcategory", subcategory); 
+                cmd.Parameters.AddWithValue("@main_id", maincategory);
+                cmd.Parameters.AddWithValue("@middle_id", middlecategory);
+                cmd.Parameters.AddWithValue("@sub_id", subcategory); 
                 cmd.ExecuteNonQuery();
             }
         }

@@ -36,9 +36,10 @@
             // 
             // buttonWorkModSave
             // 
-            this.buttonWorkModSave.Location = new System.Drawing.Point(179, 305);
+            this.buttonWorkModSave.Location = new System.Drawing.Point(205, 381);
+            this.buttonWorkModSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonWorkModSave.Name = "buttonWorkModSave";
-            this.buttonWorkModSave.Size = new System.Drawing.Size(87, 33);
+            this.buttonWorkModSave.Size = new System.Drawing.Size(99, 41);
             this.buttonWorkModSave.TabIndex = 3;
             this.buttonWorkModSave.Text = "저장";
             this.buttonWorkModSave.UseVisualStyleBackColor = true;
@@ -47,51 +48,45 @@
             // comboBoxSubCateMod
             // 
             this.comboBoxSubCateMod.FormattingEnabled = true;
-            this.comboBoxSubCateMod.Items.AddRange(new object[] {
-            "근퇴확인",
-            "급여정산",
-            "개발",
-            "회의"});
-            this.comboBoxSubCateMod.Location = new System.Drawing.Point(164, 222);
+            this.comboBoxSubCateMod.Location = new System.Drawing.Point(187, 278);
+            this.comboBoxSubCateMod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxSubCateMod.Name = "comboBoxSubCateMod";
-            this.comboBoxSubCateMod.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxSubCateMod.Size = new System.Drawing.Size(138, 23);
             this.comboBoxSubCateMod.TabIndex = 2;
             this.comboBoxSubCateMod.Text = "소분류";
             // 
             // comboBoxMiddleCateMod
             // 
             this.comboBoxMiddleCateMod.FormattingEnabled = true;
-            this.comboBoxMiddleCateMod.Items.AddRange(new object[] {
-            "정기업무",
-            "단기업무"});
-            this.comboBoxMiddleCateMod.Location = new System.Drawing.Point(164, 146);
+            this.comboBoxMiddleCateMod.Location = new System.Drawing.Point(187, 182);
+            this.comboBoxMiddleCateMod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxMiddleCateMod.Name = "comboBoxMiddleCateMod";
-            this.comboBoxMiddleCateMod.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxMiddleCateMod.Size = new System.Drawing.Size(138, 23);
             this.comboBoxMiddleCateMod.TabIndex = 1;
             this.comboBoxMiddleCateMod.Text = "중분류";
+            this.comboBoxMiddleCateMod.SelectedIndexChanged += new System.EventHandler(this.comboBoxMiddleCateMod_SelectedIndexChanged);
             // 
             // comboBoxMainCateMod
             // 
             this.comboBoxMainCateMod.FormattingEnabled = true;
-            this.comboBoxMainCateMod.Items.AddRange(new object[] {
-            "인사부서",
-            "개발부서",
-            "홍보부서"});
-            this.comboBoxMainCateMod.Location = new System.Drawing.Point(164, 82);
+            this.comboBoxMainCateMod.Location = new System.Drawing.Point(187, 102);
+            this.comboBoxMainCateMod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxMainCateMod.Name = "comboBoxMainCateMod";
-            this.comboBoxMainCateMod.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxMainCateMod.Size = new System.Drawing.Size(138, 23);
             this.comboBoxMainCateMod.TabIndex = 0;
             this.comboBoxMainCateMod.Text = "대분류";
+            this.comboBoxMainCateMod.SelectedIndexChanged += new System.EventHandler(this.comboBoxMainCateMod_SelectedIndexChanged);
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 371);
+            this.ClientSize = new System.Drawing.Size(565, 464);
             this.Controls.Add(this.buttonWorkModSave);
             this.Controls.Add(this.comboBoxSubCateMod);
             this.Controls.Add(this.comboBoxMiddleCateMod);
             this.Controls.Add(this.comboBoxMainCateMod);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form3";
             this.Text = "업무수정";
             this.ResumeLayout(false);

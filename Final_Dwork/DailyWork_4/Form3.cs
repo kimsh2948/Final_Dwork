@@ -18,15 +18,29 @@ namespace DailyWork
         {
             InitializeComponent();
             InitVariables();
+            initWork();
             this.buttonWorkModSave.Click += buttonWorkModSave_Click;
         }
         public Form3(Form1 form)
         {
             InitializeComponent();
+            initWork();
             form1 = form;
         }
         public void InitVariables()
         {
+
+        }
+        public void initWork()
+        {
+            string query_main = "SELECT name FROM MainCategory";
+            MySqlDataReader rdr_m = DBManager.GetInstace().Select(query_main);
+            while (rdr_m.Read())
+            {
+                string maincategory = (string)rdr_m["name"];
+                comboBoxMainCateMod.Items.Add(maincategory);
+            }
+            rdr_m.Close();
 
         }
 
@@ -44,9 +58,25 @@ namespace DailyWork
 
             string maincategory = comboBoxMainCateMod.Text;
             string middlecategory = comboBoxMiddleCateMod.Text;
-            string subcategory = comboBoxSubCateMod.Text; 
-            string query = "UPDATE dailywork SET MainCategory = @maincategory, MiddleCategory = " +
-                "@middlecategory, SubCategory = @subcategory WHERE id='"+indexnum+"'";
+            string subcategory = comboBoxSubCateMod.Text;
+
+            int main_id = 0;
+            int middle_id = 0;
+            int sub_id = 0;
+
+            string query_id = "SELECT id, maincategory_id, middlecategory_id FROM SubCategory WHERE name = '" + comboBoxSubCateMod.Text + "'";
+            MySqlDataReader rdr = DBManager.GetInstace().Select(query_id);
+
+            while (rdr.Read())
+            {
+                main_id = (int)rdr["maincategory_id"];
+                middle_id = (int)rdr["middlecategory_id"];
+                sub_id = (int)rdr["id"];
+            }
+            rdr.Close();
+
+            string query = "UPDATE Task SET Task_maincategory_id = @main_id, Task_middlecategory_id = " +
+                "@middle_id, Task_subcategory_id = @sub_id WHERE id='"+indexnum+"'";
 
             if (maincategory == "대분류" || middlecategory == "중분류" || subcategory == "소분류")
             {
@@ -54,7 +84,7 @@ namespace DailyWork
             }
             else
             {
-                DBManager.GetInstace().Update(query, maincategory, middlecategory, subcategory);
+                DBManager.GetInstace().Update(query, main_id, middle_id, sub_id);
                 this.Close();
             }
         }
@@ -115,5 +145,52 @@ namespace DailyWork
 
         }
 
+        private void comboBoxMainCateMod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxMiddleCateMod.Items.Clear();
+            comboBoxSubCateMod.Items.Clear();
+            string query = "SELECT id FROM MainCategory WHERE name = '" + comboBoxMainCateMod.Text + "'";
+            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            int main_id = 0;
+            while (rdr.Read())
+            {
+                main_id = (int)rdr["id"];
+            }
+            rdr.Close();
+
+            string query_middle = "SELECT name FROM MiddleCategory WHERE Mid_maincategory_id = '" + main_id + "'";
+            MySqlDataReader rdr_m = DBManager.GetInstace().Select(query_middle);
+            while (rdr_m.Read())
+            {
+                string middlecategory = (string)rdr_m["name"];
+                comboBoxMiddleCateMod.Items.Add(middlecategory);
+            }
+            rdr_m.Close();
+        }
+
+        private void comboBoxMiddleCateMod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxSubCateMod.Items.Clear();
+            string query = "SELECT id, Mid_maincategory_id FROM MiddleCategory WHERE name = '" + comboBoxMiddleCateMod.Text + "'";
+            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            int main_id = 0;
+            int middle_id = 0;
+            while (rdr.Read())
+            {
+                main_id = (int)rdr["Mid_maincategory_id"];
+                middle_id = (int)rdr["id"];
+            }
+            rdr.Close();
+
+            string query_sub = "SELECT name FROM SubCategory WHERE maincategory_id = '" + main_id + "' AND middlecategory_id = '" + middle_id + "'";
+            MySqlDataReader rdr_m = DBManager.GetInstace().Select(query_sub);
+            while (rdr_m.Read())
+            {
+                string subcategory = (string)rdr_m["name"];
+
+                comboBoxSubCateMod.Items.Add(subcategory);
+            }
+            rdr_m.Close();
+        }
     }
 }
