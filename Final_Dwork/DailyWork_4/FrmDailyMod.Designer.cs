@@ -1,6 +1,6 @@
 ﻿namespace DailyWork
 {
-    partial class Form3
+    partial class FrmDailyMod
     {
         /// <summary>
         /// Required designer variable.

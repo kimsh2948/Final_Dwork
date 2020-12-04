@@ -11,17 +11,17 @@ using MySql.Data.MySqlClient;
 
 namespace DailyWork
 {
-    public partial class Form3 : Form
+    public partial class FrmDailyMod : Form
     {
-        Form1 form1;
-        public Form3()
+        FrmDailyMain form1;
+        public FrmDailyMod()
         {
             InitializeComponent();
             InitVariables();
             initWork();
             this.buttonWorkModSave.Click += buttonWorkModSave_Click;
         }
-        public Form3(Form1 form)
+        public FrmDailyMod(FrmDailyMain form)
         {
             InitializeComponent();
             InitVariables();
@@ -50,7 +50,7 @@ namespace DailyWork
         public void initWork()
         {
             string query_main = "SELECT name FROM MainCategory";
-            MySqlDataReader rdr_m = DBManager.GetInstace().Select(query_main);
+            MySqlDataReader rdr_m = DailyTaskDBManager.GetInstace().Select(query_main);
             while (rdr_m.Read())
             {
                 string maincategory = (string)rdr_m["name"];
@@ -62,14 +62,14 @@ namespace DailyWork
 
         private void buttonWorkModSave_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            FrmDailyAdd form2 = new FrmDailyAdd();
             ModWork();
             AddListView();
         }
         
         public void ModWork()
         {
-            Form2 form2 = new Form2();
+            FrmDailyAdd form2 = new FrmDailyAdd();
             int indexnum = Convert.ToInt32(form1.listViewWorkList.FocusedItem.Text);
 
             string maincategory = comboBoxMainCateMod.Text;
@@ -81,7 +81,7 @@ namespace DailyWork
             int sub_id = 0;
 
             string query_id = "SELECT id, maincategory_id, middlecategory_id FROM SubCategory WHERE name = '" + comboBoxSubCateMod.Text + "'";
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query_id);
+            MySqlDataReader rdr = DailyTaskDBManager.GetInstace().Select(query_id);
 
             while (rdr.Read())
             {
@@ -100,13 +100,13 @@ namespace DailyWork
             }
             else
             {
-                DBManager.GetInstace().Update(query, main_id, middle_id, sub_id);
+                DailyTaskDBManager.GetInstace().Update(query, main_id, middle_id, sub_id);
                 this.Close();
             }
         }
         public void AddListView()
         {
-            Form2 form2 = new Form2();
+            FrmDailyAdd form2 = new FrmDailyAdd();
             if (form1.listViewWorkList.Items.Count > 0)//listview에 아이템 있으면 지우고 로드
             {
                 form1.listViewWorkList.Items.Clear();
@@ -149,7 +149,7 @@ namespace DailyWork
                     query = "SELECT name FROM SubCategory WHERE id = '" + task_id + "'";
                     break;
             }
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            MySqlDataReader rdr = DailyTaskDBManager.GetInstace().Select(query);
 
             while (rdr.Read())
             {
@@ -166,7 +166,7 @@ namespace DailyWork
             comboBoxMiddleCateMod.Items.Clear();
             comboBoxSubCateMod.Items.Clear();
             string query = "SELECT id FROM MainCategory WHERE name = '" + comboBoxMainCateMod.Text + "'";
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            MySqlDataReader rdr = DailyTaskDBManager.GetInstace().Select(query);
             int main_id = 0;
             while (rdr.Read())
             {
@@ -175,7 +175,7 @@ namespace DailyWork
             rdr.Close();
 
             string query_middle = "SELECT name FROM MiddleCategory WHERE Mid_maincategory_id = '" + main_id + "'";
-            MySqlDataReader rdr_m = DBManager.GetInstace().Select(query_middle);
+            MySqlDataReader rdr_m = DailyTaskDBManager.GetInstace().Select(query_middle);
             while (rdr_m.Read())
             {
                 string middlecategory = (string)rdr_m["name"];
@@ -188,7 +188,7 @@ namespace DailyWork
         {
             comboBoxSubCateMod.Items.Clear();
             string query = "SELECT id, Mid_maincategory_id FROM MiddleCategory WHERE name = '" + comboBoxMiddleCateMod.Text + "'";
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            MySqlDataReader rdr = DailyTaskDBManager.GetInstace().Select(query);
             int main_id = 0;
             int middle_id = 0;
             while (rdr.Read())
@@ -199,7 +199,7 @@ namespace DailyWork
             rdr.Close();
 
             string query_sub = "SELECT name FROM SubCategory WHERE maincategory_id = '" + main_id + "' AND middlecategory_id = '" + middle_id + "'";
-            MySqlDataReader rdr_m = DBManager.GetInstace().Select(query_sub);
+            MySqlDataReader rdr_m = DailyTaskDBManager.GetInstace().Select(query_sub);
             while (rdr_m.Read())
             {
                 string subcategory = (string)rdr_m["name"];

@@ -1,6 +1,6 @@
 ﻿namespace DailyWork
 {
-    partial class Form1
+    partial class FrmDailyMain
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.

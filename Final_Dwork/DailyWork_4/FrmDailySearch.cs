@@ -11,16 +11,16 @@ using MySql.Data.MySqlClient;
 
 namespace DailyWork
 {
-    public partial class Form4 : Form
+    public partial class FrmDailySearch : Form
     {
-        Form1 form1;
+        FrmDailyMain form1;
 
-        public Form4()
+        public FrmDailySearch()
         {
             InitializeComponent();
             this.buttonWorkSerchOn.Click += buttonWorkSerchOn_Click;
         }
-        public Form4(Form1 form)
+        public FrmDailySearch(FrmDailyMain form)
         {
             InitializeComponent();
             form1 = form;
@@ -37,7 +37,7 @@ namespace DailyWork
                 {
                     form1.listViewWorkList.Items.Clear();
                 }
-            Form2 form2 = new Form2();
+            FrmDailyAdd form2 = new FrmDailyAdd();
             int i = 0;
             List<WorkCategory> worklist = SearchLoad();
 
@@ -80,7 +80,7 @@ namespace DailyWork
                     query = "SELECT name FROM SubCategory WHERE id = '" + task_id + "'";
                     break;
             }
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            MySqlDataReader rdr = DailyTaskDBManager.GetInstace().Select(query);
 
             while (rdr.Read())
             {
@@ -110,7 +110,7 @@ namespace DailyWork
                 "OR Task_middlecategory_id IN (SELECT id FROM MiddleCategory WHERE name LIKE '%" + keyword + "%') " +
                 "OR Task_subcategory_id IN (SELECT id FROM SubCategory WHERE name LIKE '%" + keyword + "%') ";
             }
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            MySqlDataReader rdr = DailyTaskDBManager.GetInstace().Select(query);
             while (rdr.Read())
             {
                 WorkCategory workcategory = new WorkCategory();

@@ -1,6 +1,6 @@
 ﻿namespace DailyWork
 {
-    partial class Form4
+    partial class FrmDailySearch
     {
         /// <summary>
         /// Required designer variable.

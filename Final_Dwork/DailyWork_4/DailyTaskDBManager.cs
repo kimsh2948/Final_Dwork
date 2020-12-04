@@ -7,13 +7,13 @@ using MySql.Data.MySqlClient;
 
 namespace DailyWork
 {
-    class DBManager
+    class DailyTaskDBManager
     {
-        private static DBManager instace = new DBManager();
+        private static DailyTaskDBManager instace = new DailyTaskDBManager();
         string strConn = "Server=49.50.174.201;Database=AJW1234;Uid=AJW1234;Pwd=AJW1234!@;Charset=utf8";
 
-        public static DBManager GetInstace() { return instace; }
-        private DBManager()
+        public static DailyTaskDBManager GetInstace() { return instace; }
+        private DailyTaskDBManager()
         {
 
         }

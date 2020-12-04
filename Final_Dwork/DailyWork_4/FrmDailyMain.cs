@@ -11,10 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace DailyWork
 {
-    public partial class Form1 : Form
+    public partial class FrmDailyMain : Form
     {
 
-        public Form1()
+        public FrmDailyMain()
         {
             InitializeComponent();
             InitListView();
@@ -36,12 +36,12 @@ namespace DailyWork
 
         private void buttonWorkReg_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(this);
+            FrmDailyAdd form2 = new FrmDailyAdd(this);
             form2.Show();
         }
         private void buttonWorkMod_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3(this);
+            FrmDailyMod form3 = new FrmDailyMod(this);
             if (listViewWorkList.SelectedIndices.Count > 0)
             {
                 form3.Show();
@@ -55,7 +55,7 @@ namespace DailyWork
 
         private void buttonLoadWorkList_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            FrmDailyAdd form2 = new FrmDailyAdd();
             int i = 0;
             List<WorkCategory> worklist = form2.LoadWork();
             if (listViewWorkList.Items.Count > 0) {
@@ -96,7 +96,7 @@ namespace DailyWork
                     query = "SELECT name FROM SubCategory WHERE id = '" + task_id + "'";
                     break;
             }
-            MySqlDataReader rdr = DBManager.GetInstace().Select(query);
+            MySqlDataReader rdr = DailyTaskDBManager.GetInstace().Select(query);
 
             while (rdr.Read())
             {
@@ -110,18 +110,27 @@ namespace DailyWork
 
         private void buttonWorkDel_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            int indexnum = Convert.ToInt32(listViewWorkList.FocusedItem.Text);
-            if (MessageBox.Show("선택하신 업무가 삭제됩니다", "업무 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            FrmDailyAdd form2 = new FrmDailyAdd();
+            int indexnum = 0;
+            if (listViewWorkList.SelectedIndices.Count == 0)
             {
-                string query = "DELETE FROM Task WHERE id = '" + indexnum + "'";
-                DBManager.GetInstace().DBquery(query);
-                DelList(indexnum);
+                MessageBox.Show("항목을 선택해 주세요");
             }
             else
             {
-                MessageBox.Show("삭제를 취소하셨습니다.");
+                if (MessageBox.Show("선택하신 업무가 삭제됩니다", "업무 삭제", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    indexnum = Convert.ToInt32(listViewWorkList.FocusedItem.Text);
+                    string query = "DELETE FROM Task WHERE id = '" + indexnum + "'";
+                    DailyTaskDBManager.GetInstace().DBquery(query);
+                    DelList(indexnum);
+                }
+                else
+                {
+                    MessageBox.Show("삭제를 취소하셨습니다.");
+                }
             }
+
         }
         public void DelList(int indexnum)
         {
@@ -132,7 +141,7 @@ namespace DailyWork
 
         private void buttonWorkSerch_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4(this);
+            FrmDailySearch form4 = new FrmDailySearch(this);
             form4.Show();
         }
     }

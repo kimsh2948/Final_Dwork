@@ -1,6 +1,6 @@
 ﻿namespace DailyWork
 {
-    partial class Form2
+    partial class FrmDailyAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDailyAdd));
             this.comboBoxMainCate = new System.Windows.Forms.ComboBox();
             this.comboBoxMiddleCate = new System.Windows.Forms.ComboBox();
             this.comboBoxSubCate = new System.Windows.Forms.ComboBox();
